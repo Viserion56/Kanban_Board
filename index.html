@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="priority-filter">
+            <div class="box p1"></div>
+            <div class="box p2"></div>
+            <div class="box p3"></div>
+            <div class="box p4"></div>
+        </div>
+    <div class="quick-action">
+        <button class="icon fas fa-plus add"></button>
+        <button class="icon delete">x</button>
+    </div>
+</header>
+    <main>
+        <section>
+            <h1>Kanban board</h1>
+            <div class="modal hide">
+                <div class="left-section">
+                    <textarea name="" id="" placeholder="Enter your task"></textarea>
+                </div>
+                <div class="right-section">
+                    <div class="close">
+                        x
+                    </div>
+                    <div class="priority-filter">
+                        <div class="box p1"></div>
+                        <div class="box p2"></div>
+                        <div class="box p3"></div>
+                        <div class="box p4 selected"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="ticket-section">
+               
+            </div>
+        </section>
+    </main>
+    <script src="index.js">
+
+    </script>
+</body>
+</html>

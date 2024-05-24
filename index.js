@@ -39,7 +39,7 @@ textArearef.addEventListener('keyup',function(e){
         description:description,
         priority:priority
        });
-       console.log(tasks);
+    //    console.log(tasks);
        listTickets(tasks);
         closeModal();
     }
@@ -101,6 +101,7 @@ function listTickets(tickets){
         const ticketHTML=createTicket(ticket);
         const ticketContainerRef=document.createElement('div');
         ticketContainerRef.setAttribute('class','ticket-container');
+        ticketContainerRef.setAttribute('data-id',ticket.id);
         ticketContainerRef.innerHTML=ticketHTML;
         ticketSectionRef.appendChild(ticketContainerRef);
 
@@ -109,3 +110,24 @@ function listTickets(tickets){
     });
 
 }
+
+ticketSectionRef.addEventListener('click',function(e){
+    if([...e.target.classList].includes('fa-solid')){
+        // console.log(e.target);
+        const currentTicketContainer=e.target.closest('.ticket-container');
+        const currentTicketId=currentTicketContainer.getAttribute('data-id');
+        // console.log(currentTicketId);
+        const currTextArea=currentTicketContainer.querySelector('.ticket-content textarea');
+        const lockRef=currentTicketContainer.querySelector('.ticket-lock');
+        const isEditable=lockRef.classList.contains('locked');
+        if(isEditable){
+            lockRef.classList.remove('locked');
+            currTextArea.removeAttribute('disabled');
+        }
+        else{
+            lockRef.classList.add('locked');
+            currTextArea.setAttribute('disabled',true);
+        }
+
+    }
+});
